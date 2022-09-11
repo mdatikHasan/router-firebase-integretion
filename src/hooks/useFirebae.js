@@ -1,47 +1,47 @@
-import { useEffect, useState } from "react";
-import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut } from 'firebase/auth';
-import app from "../firebase.init";
+// import { useEffect, useState } from "react";
+// import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut } from 'firebase/auth';
+// import app from "../firebase.init";
 
 
-const auth = getAuth(app);
-const googleProvider = new GoogleAuthProvider()
-const useFirebae = () => {
-    const [user, setUser] = useState({});
+// const auth = getAuth(app);
+// const googleProvider = new GoogleAuthProvider()
+// const useFirebae = () => {
+//     const [user, setUser] = useState({});
 
 
 
-    const signInWithGoogle = () => {
-        signInWithPopup(auth, googleProvider)
-            .then(result => {
-                const user = result.user;
-                setUser(user);
-                console.log(user);
-            })
-            .catch(error => {
-                console.log(error);
-            })
-    }
+//     const signInWithGoogle = () => {
+//         signInWithPopup(auth, googleProvider)
+//             .then(result => {
+//                 const user = result.user;
+//                 setUser(user);
+//                 console.log(user);
+//             })
+//             .catch(error => {
+//                 console.log(error);
+//             })
+//     }
 
-    const handleSignOut = () => {
-        signOut(auth)
-            .then(() => {
+//     const handleSignOut = () => {
+//         signOut(auth)
+//             .then(() => {
 
-            })
-    }
+//             })
+//     }
 
-    useEffect(() => {
-        onAuthStateChanged(auth, user => {
-            setUser(user);
-        })
-    }, [])
+//     useEffect(() => {
+//         onAuthStateChanged(auth, user => {
+//             setUser(user);
+//         })
+//     }, [])
 
 
-    return {
-        user,
-        setUser,
-        signInWithGoogle,
-        handleSignOut,
-    }
-};
+//     return {
+//         user,
+//         setUser,
+//         signInWithGoogle,
+//         handleSignOut,
+//     }
+// };
 
-export default useFirebae;
+// export default useFirebae;
